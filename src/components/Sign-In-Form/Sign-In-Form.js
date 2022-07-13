@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import "./Sign-In-Form.styles.scss";
+
+import { UserContext } from "../../contexts/user.contexts";
 
 import {
   signInWithGooglePopup,
@@ -19,6 +21,8 @@ const defaultformFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultformFields);
   const { email, password } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,7 +44,7 @@ const SignInForm = () => {
 
     try {
       const { user } = await passwordAndEmailSignIn(email, password);
-      console.log(`${user.email} is now logged in`);
+      setCurrentUser(user);
     } catch (err) {
       switch (err.code) {
         case "auth/wrong-password":
