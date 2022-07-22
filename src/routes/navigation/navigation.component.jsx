@@ -13,13 +13,8 @@ import { signOut } from "firebase/auth";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
 
-  // const dropDownCart = () => {
-  //   console.log("click");
-  //   isCartOpen ? (isCartOpen = false) : (isCartOpen = true);
-  //   console.log(isCartOpen);
-  // };
+  const { isCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
     await signOutUser();

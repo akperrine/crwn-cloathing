@@ -15,6 +15,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 
   &:hover {
     background-color: white;
