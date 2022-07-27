@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 
 import FormInput from "../Form-Input/Form-Input";
-import "./sign-upForm.styles.scss";
-import Button from "../Button/Button";
+import { SignupContainer } from "./sign-upForm.styles.js";
+import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 
 // import { UserContext } from "../../contexts/user.contexts";
 
@@ -59,7 +59,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignupContainer>
       <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -98,11 +98,11 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button buttonType="" type="submit">
+        <Button buttonType={BUTTON_TYPE_CLASSES.base} type="submit">
           Sign Up
         </Button>
       </form>
-    </div>
+    </SignupContainer>
   );
 };
 
