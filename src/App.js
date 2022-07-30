@@ -6,7 +6,7 @@ import Checkout from "./routes/checkout/checkout";
 
 import { Routes, Route } from "react-router-dom";
 
-import { createContext, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { useDispatch } from "react-redux";
 
 import {

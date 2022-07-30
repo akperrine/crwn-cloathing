@@ -16,12 +16,3 @@ export const selectCategoriesMap = createSelector(
       return accum;
     }, {})
 );
-
-// (state) => {
-//   console.log("selector fired");
-//   return state.categories.categories.reduce((accum, category) => {
-//     const { title, items } = category;
-//     accum[title.toLowerCase()] = items;
-//     return accum;
-//   }, {});
-// };
