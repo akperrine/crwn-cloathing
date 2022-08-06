@@ -10,9 +10,14 @@ export const selectCategories = createSelector(
 export const selectCategoriesMap = createSelector(
   [selectCategories],
   (categories) =>
-    categories.reduce((accum, category) => {
+    categories.reduce((acc, category) => {
       const { title, items } = category;
-      accum[title.toLowerCase()] = items;
-      return accum;
+      acc[title.toLowerCase()] = items;
+      return acc;
     }, {})
+);
+
+export const selectIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
 );
