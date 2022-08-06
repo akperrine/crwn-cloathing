@@ -7,9 +7,17 @@ import { rootReducer } from "./root-reducer";
 import { cartReducer } from "./cart/cart.reducer";
 import { userReducer } from "./user/user.reducer";
 
-const middleWares = [process.env.NODE_ENV === "development" && logger];
+const middleWares = [process.env.NODE_ENV !== "production" && logger].filter(
+  Boolean
+);
 
-const composedEnhancers = compose(applyMiddleware(...middleWares));
+const composeEnhancer =
+  (process.env.NODE_ENV !== "production" &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
 const persistConfig = {
   key: "root",
