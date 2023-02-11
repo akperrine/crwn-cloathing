@@ -9,7 +9,6 @@ import {
   LogoContainer,
 } from "./navigation.styles";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
-import { UserContext } from "../../contexts/user.contexts";
 import CartIcon from "../../components/cart-icon/cart-icon";
 import CartDropdown from "../../components/cart-drop-down/cart-dropdown";
 import { CartContext } from "../../contexts/cart.context";
