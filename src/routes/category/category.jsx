@@ -7,11 +7,11 @@ import ProductCard from "../../components/product-card/product-card";
 import { CategoryContainer, Title } from "./category.styles";
 
 //
-import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { selectCategories } from "../../store/categories/category.selector";
 
 const Category = () => {
   const { category } = useParams();
-  const categoriesMap = useSelector(selectCategoriesMap);
+  const categoriesMap = useSelector(selectCategories);
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
