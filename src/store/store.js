@@ -1,11 +1,25 @@
 import { compose, applyMiddleware } from "redux";
 // They recomend using configureStore frum RTK to avoid common bugs
 import { legacy_createStore as createStore } from "redux";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 import { rootReducer } from "./root-reducer";
 
-const middleWares = [logger];
+const loggerMiddleware = (store) => (next) => (action) => {
+  if (!action.type) {
+    return next(action);
+  }
+
+  console.log("type", action.type);
+  console.log("patyload", action.payload);
+  console.log("currentState: ", store.getState());
+
+  next(action);
+
+  console.log("next state: ", store.getState());
+};
+
+const middleWares = [loggerMiddleware];
 
 const composedEnhancers = compose(applyMiddleware(...middleWares));
 
