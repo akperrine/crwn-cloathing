@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const NavigationContainer = styled.div`
+  font-family: "DM Sans";
   height: 70px;
   width: 100%;
   display: flex;
@@ -24,9 +25,10 @@ export const NavLinks = styled.div`
 `;
 
 export const NavLink = styled(Link)`
+  font-family: "Open Sans";
   padding: 10px 15px;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.7rem;
 `;
 
 // .navigation {

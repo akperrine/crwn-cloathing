@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SignupContainer = styled.div`
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   width: 380px;

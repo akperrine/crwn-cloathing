@@ -8,6 +8,7 @@ export const CategoryPreviewContainer = styled.div`
 `;
 
 export const Title = styled(Link)`
+  font-family: "Open Sans", sans-serif;
   font-size: 28px;
   margin-bottom: 25px;
   cursor: pointer;
