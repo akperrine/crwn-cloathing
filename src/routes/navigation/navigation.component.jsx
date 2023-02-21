@@ -18,7 +18,6 @@ import { cartDropDown } from "../../store/cart/cart.selector";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  console.log("current user", currentUser);
   const isCartOpen = useSelector(cartDropDown);
 
   const signOutHandler = async () => {
