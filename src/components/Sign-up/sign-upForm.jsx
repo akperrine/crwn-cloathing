@@ -1,15 +1,11 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import FormInput from "../Form-Input/Form-Input";
 import { SignupContainer } from "./sign-upForm.styles.js";
 import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 
-// import { UserContext } from "../../contexts/user.contexts";
-
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+import { signUpStart } from "../../store/user/user.action";
 
 const defaultformFields = {
   displayName: "",
@@ -19,10 +15,9 @@ const defaultformFields = {
 };
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultformFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  // const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultformFields);
@@ -34,14 +29,8 @@ const SignUpForm = () => {
       alert("passwords do not match");
       return;
     }
-
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      // setCurrentUser(user);
-      await createUserDocumentFromAuth(user, { displayName });
+      dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
