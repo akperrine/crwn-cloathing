@@ -13,8 +13,10 @@ import {
   onAuthStateChangedListener,
 } from "./utils/firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.action";
+import { persistor } from "./store/store";
 
 const App = () => {
+  persistor.purge();
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
