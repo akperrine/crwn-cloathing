@@ -1,11 +1,8 @@
 import axios from "axios";
+const CATEGORY_REST_API_URL = "http://localhost:8080/api/categories";
 
-const CATEGORY_REST_API_URL = "http://localhost:8080/categories/clothingitems";
-
-class CategoryService {
-  getCategories() {
-    axios.get(CATEGORY_REST_API_URL);
-  }
-}
-
-export default new CategoryService();
+export const getCategories = async () => {
+  const response = await fetch(CATEGORY_REST_API_URL).then((res) => res.json());
+  // console.log(response);
+  return response;
+};

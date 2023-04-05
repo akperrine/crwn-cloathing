@@ -10,16 +10,20 @@ import { useDispatch } from "react-redux";
 
 import {
   createUserDocumentFromAuth,
+  getCategoriesAndDocuments,
   getCurrentUser,
   onAuthStateChangedListener,
 } from "./utils/firebase/firebase.utils";
 import { checkUserSession, setCurrentUser } from "./store/user/user.action";
+import { getCategories } from "./utils/category.services/CategoryService";
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkUserSession());
   }, []);
+
+  console.log(getCategories(), getCategoriesAndDocuments());
 
   return (
     <Routes>
